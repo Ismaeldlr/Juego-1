@@ -1,0 +1,25 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1740965181
+BOSS.tscn::PackedScene::3930321168580240188::1740359244::0::1::::<><>::res://Scripts/Boss.gd<>uid://c63cxa2ly84db::::res://Sprites/Boss Final.png<>uid://q0e1mfvsirw3::::res://BossBullet.tscn
+BossBullet.tscn::PackedScene::1174920879655362316::1740359244::0::1::::<><>::res://Scripts/BossBullet.gd<>uid://bp1o15o6c7wtn::::res://Sprites/BossBullet.png
+bullet.tscn::PackedScene::8705322181655985885::1740359244::0::1::::<><>::uid://ckvml16jxddig::::res://Sprites/Laser.png<>res://Scripts/proyectil.gd
+Enemy1.tscn::PackedScene::7604952010610568981::1740359244::0::1::::<><>::res://Enemy.gd<>uid://q0e1mfvsirw3::::res://BossBullet.tscn<>uid://taa4887seop6::::res://Sprites/Scout.png
+Enemy.gd::GDScript::-1::1740284751::0::1::::<>CharacterBody2D<>::
+EnemySpawner.tscn::PackedScene::7923092107905099927::1740359244::0::1::::<><>::res://Scripts/EnemySpawner.gd<>uid://bv842yvikrnt1::::res://BOSS.tscn<>uid://dgl5piqr5rmob::::res://Enemy1.tscn
+icon.svg::CompressedTexture2D::7030740958470312581::1739755820::1739755830::1::::<><>::
+main_scene.tscn::PackedScene::7982433083259370850::1740359244::0::1::::<><>::uid://cjeph04smve3k::::res://Sprites/Background.jpg<>res://Scripts/Nave_movement.gd<>uid://dwa6ncpe7epu0::::res://bullet.tscn<>res://Scripts/Background.gd<>uid://54n1ms0qwx13::::res://Sprites/Nave.png<>uid://dk5af04vmwy8f::::res://EnemySpawner.tscn
+::res://Scripts/::1740359227
+Background.gd::GDScript::-1::1740195009::0::1::::<>ParallaxLayer<>::
+Boss.gd::GDScript::-1::1740283528::0::1::::<>CharacterBody2D<>::
+BossBullet.gd::GDScript::-1::1740284742::0::1::::<>CharacterBody2D<>::
+EnemySpawner.gd::GDScript::-1::1740359227::0::1::::<>Node2D<>::
+Nave_movement.gd::GDScript::-1::1740284109::0::1::::<>CharacterBody2D<>::
+proyectil.gd::GDScript::-1::1740283746::0::1::::<>CharacterBody2D<>::
+seguir_jugador.gd::GDScript::-1::1739758099::0::1::::<>Camera2D<>::
+::res://Sprites/::1740195962
+Background.jpg::CompressedTexture2D::5413723085311350202::1739756256::1740195445::1::::<><>::
+Boss Final.png::CompressedTexture2D::7006660646767136899::1740193739::1740195447::1::::<><>::
+BossBullet.png::CompressedTexture2D::3493825227149619563::1740195954::1740195962::1::::<><>::
+Laser.png::CompressedTexture2D::5518831398183749514::1739759982::1740195449::1::::<><>::
+Nave.png::CompressedTexture2D::2166368674801036732::1740194205::1740195453::1::::<><>::
+Scout.png::CompressedTexture2D::1333641602873119317::1739757733::1740195457::1::::<><>::

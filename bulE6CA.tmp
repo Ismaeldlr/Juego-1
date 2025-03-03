@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwa6ncpe7epu0"]
+
+[ext_resource type="Texture2D" uid="uid://ckvml16jxddig" path="res://Sprites/Laser.png" id="1_s58el"]
+[ext_resource type="Script" path="res://Scripts/proyectil.gd" id="1_wt282"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivm51"]
+size = Vector2(9, 22)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_wt282")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = -1.5708
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("1_s58el")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_ivm51")

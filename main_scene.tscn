@@ -1,55 +1,55 @@
-[gd_scene load_steps=9 format=3 uid="uid://dly0rhwyg3ndi"]
+[gd_scene load_steps=7 format=3 uid="uid://dly0rhwyg3ndi"]
 
-[ext_resource type="Texture2D" uid="uid://cjeph04smve3k" path="res://Background.jpg" id="1_kuqar"]
-[ext_resource type="Texture2D" uid="uid://bstbp5av4wlnr" path="res://Nave.png" id="2_0ule5"]
-[ext_resource type="Script" path="res://Nave_movement.gd" id="2_bqulh"]
+[ext_resource type="Texture2D" uid="uid://cjeph04smve3k" path="res://Sprites/Background.jpg" id="1_kuqar"]
+[ext_resource type="Script" path="res://Scripts/Nave_movement.gd" id="2_bqulh"]
 [ext_resource type="PackedScene" uid="uid://dwa6ncpe7epu0" path="res://bullet.tscn" id="3_o8xxs"]
-[ext_resource type="Script" path="res://proyectil.gd" id="4_7l6bk"]
-[ext_resource type="Texture2D" uid="uid://ckvml16jxddig" path="res://Laser.png" id="4_haesd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nujf8"]
-size = Vector2(9.59, 8.6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8k0r"]
-size = Vector2(65, 79)
+[ext_resource type="Script" path="res://Scripts/Background.gd" id="4_orryi"]
+[ext_resource type="Texture2D" uid="uid://54n1ms0qwx13" path="res://Sprites/Nave.png" id="5_pllsi"]
+[ext_resource type="PackedScene" uid="uid://dk5af04vmwy8f" path="res://EnemySpawner.tscn" id="6_us0ho"]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7, -13944)
-rotation = 1.5708
-scale = Vector2(6.14667, 3.82114)
-texture = ExtResource("1_kuqar")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("health_bar")]
+position = Vector2(0, -113)
+scale = Vector2(0.74, 0.74)
 script = ExtResource("2_bqulh")
 Bullet = ExtResource("3_o8xxs")
+health_bar = NodePath("Health Bar")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(2, 39)
-rotation = 3.14159
-scale = Vector2(0.63, 0.63)
-texture = ExtResource("2_0ule5")
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("5_pllsi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-10.3807, 56.1855)
-scale = Vector2(66.555, 66.555)
-shape = SubResource("RectangleShape2D_nujf8")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.22, 0.22)
-
-[node name="Muzzle" type="Marker2D" parent="CharacterBody2D"]
-position = Vector2(0, -250)
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 visible = false
-script = ExtResource("4_7l6bk")
+position = Vector2(0, 0.268341)
+scale = Vector2(1, 0.996926)
+polygon = PackedVector2Array(-5, 8, -31, 69, 35, 68.9436, 8, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-rotation = -1.5708
-texture = ExtResource("4_haesd")
+[node name="Health Bar" type="ProgressBar" parent="CharacterBody2D"]
+modulate = Color(0, 1, 0.0313726, 1)
+self_modulate = Color(0, 1, 0, 1)
+offset_left = -43.0
+offset_top = 74.0
+offset_right = 45.0
+offset_bottom = 101.0
+step = 1.0
+value = 100.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.5, -84.5)
-shape = SubResource("RectangleShape2D_r8k0r")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -453)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+script = ExtResource("4_orryi")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(5.99994, -3049)
+rotation = 1.5708
+scale = Vector2(1.29642, 0.617916)
+texture = ExtResource("1_kuqar")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("6_us0ho")]

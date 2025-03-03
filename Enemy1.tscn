@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgl5piqr5rmob"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_h72kx"]
+[ext_resource type="PackedScene" uid="uid://q0e1mfvsirw3" path="res://BossBullet.tscn" id="2_0n4ry"]
+[ext_resource type="Texture2D" uid="uid://taa4887seop6" path="res://Sprites/Scout.png" id="3_02akw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yekv3"]
+size = Vector2(33, 35)
+
+[node name="Enemy1" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_h72kx")
+Bullet = ExtResource("2_0n4ry")
+layers_2d_physics = 1
+
+[node name="BossFinal" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_02akw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -7.5)
+shape = SubResource("RectangleShape2D_yekv3")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]

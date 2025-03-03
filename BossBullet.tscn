@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0e1mfvsirw3"]
+
+[ext_resource type="Script" path="res://Scripts/BossBullet.gd" id="1_0t6vg"]
+[ext_resource type="Texture2D" uid="uid://bp1o15o6c7wtn" path="res://Sprites/BossBullet.png" id="1_srmtp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1g1c0"]
+
+[node name="BossBullet" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0t6vg")
+
+[node name="BossBullet" type="Sprite2D" parent="CharacterBody2D"]
+rotation = -1.5708
+scale = Vector2(0.391429, 0.369863)
+texture = ExtResource("1_srmtp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 9)
+shape = SubResource("CapsuleShape2D_1g1c0")

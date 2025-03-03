@@ -1,0 +1,10 @@
+res://Main_menu.tscn
+res://main_scene.tscn
+res://BOSS.tscn
+res://BossBullet.tscn
+res://EnemySpawner.tscn
+res://bullet.tscn
+res://Enemy1.tscn
+res://main_menu.gd
+res://Scripts/Nave_movement.gd
+res://Scripts/EnemySpawner.gd

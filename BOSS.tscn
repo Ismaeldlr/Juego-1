@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv842yvikrnt1"]
+
+[ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_8t8e1"]
+[ext_resource type="Texture2D" uid="uid://c63cxa2ly84db" path="res://Sprites/Boss Final.png" id="1_gibyj"]
+[ext_resource type="PackedScene" uid="uid://q0e1mfvsirw3" path="res://BossBullet.tscn" id="2_yqtss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dot2s"]
+size = Vector2(168, 155)
+
+[node name="Boss" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_8t8e1")
+Bullet = ExtResource("2_yqtss")
+health_bar = NodePath("Health Bar")
+
+[node name="BossFinal" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_gibyj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, -10.5)
+shape = SubResource("RectangleShape2D_dot2s")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+
+[node name="Health Bar" type="ProgressBar" parent="CharacterBody2D"]
+modulate = Color(1, 0.00392157, 0, 1)
+offset_left = -83.0
+offset_top = -119.0
+offset_right = 84.0
+offset_bottom = -92.0
+step = 1.0
+value = 100.0
